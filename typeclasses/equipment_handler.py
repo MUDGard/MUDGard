@@ -13,7 +13,10 @@ class EquipmentHandler:
         target_slot = object.db.slot
 
         if self.slots[target_slot] is not None:
-            self.slots[target_slot].location = self.owner
-
+            self.unequip(target_slot)
         self.slots[target_slot] = object
         object.location = None
+
+    def unequip(self, slot):
+        if self.slots[slot] is not None:
+            self.slots[target_slot].location = self.owner
