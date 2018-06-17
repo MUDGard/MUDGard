@@ -2,5 +2,5 @@ from typeclasses.objects import Object
 
 class EquipmentObject(Object):
     def at_object_creation(self):
-        self.price = 0
-        self.slot = None
+        self.db.price = 0
+        self.db.slot = None

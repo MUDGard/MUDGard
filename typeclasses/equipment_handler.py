@@ -5,6 +5,4 @@ class EquipmentHandler:
         self.body = None
         self.legs = None
         self.shoes = None
-        self.accessory_1 = None
-        self.accessory_2 = None
-        self.accessory_3 = None
+        self.accessories = [None, None, None]

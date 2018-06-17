@@ -15,8 +15,8 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 """
 
 from evennia import default_cmds
-
-
+from evennia import CmdSet
+from commands import equipment_commands
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
     The `CharacterCmdSet` contains general in-game commands like `look`,
@@ -90,3 +90,13 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
+
+class EquipmentCmdSet(CmdSet):
+    """
+    This cmdset offers both the admin commands for modifying equipment
+    and the commands for equipping, removing, and viewing your current
+    equipment.
+    """
+    key = "Equipment"
+
+    def at_cmdset_creation(self):
