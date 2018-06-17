@@ -19,7 +19,14 @@ class CmdSlot(MuxCommand):
             self.caller.msg("You must be a Builder or higher to do this!")
             return
 
+        if self.lhs is '':
+            self.caller.msg("You must choose an object.")
+
+        if self.rhs is '':
+            self.caller.msg("You must choose a slot.")
+
         target = self.caller.search(self.lhs)
+
         if target is None:
             self.caller.msg("Cannot find %s" % self.lhs)
             return
