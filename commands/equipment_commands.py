@@ -19,10 +19,10 @@ class CmdSlot(MuxCommand):
             self.caller.msg("You must be a Builder or higher to do this!")
             return
 
-        if self.lhs is '':
+        if self.lhs == '':
             self.caller.msg("You must choose an object.")
 
-        if self.rhs is '':
+        if self.rhs == '':
             self.caller.msg("You must choose a slot.")
 
         target = self.caller.search(self.lhs)
@@ -37,3 +37,51 @@ class CmdSlot(MuxCommand):
 
         self.caller.msg("Slot set.")
         target.db.slot = self.rhs
+
+class CmdEquip(MuxCommand):
+    """
+    Equip an item.
+    Usage:
+        equip [item]
+
+    Use this to equip an item to an appropriate slot.
+    """
+
+    key = "equip"
+
+    def func(self):
+        if self.lhs == '':
+            self.caller.msg("You must choose an item!")
+            return
+
+        target_item = self.caller.search(self.lhs)
+        if target_item is None:
+            self.caller.msg("You do not see a %s" % self.lhs)
+
+        self.caller.location.msg_contents("%s equips a %s" %
+            (self.caller, self.lhs))
+        self.caller.db.equipment.equip(target_item, self.caller)
+
+class CmdUnequip(MuxCommand):
+    """
+    Unequips an item from a specific slot.
+    Usage:
+        unequip [slot]
+
+    This removes the object from the slot and puts it into your inventory.
+    """
+
+    key = "unequip"
+
+    def func(self):
+        if self.lhs == '':
+            self.caller.msg("You must choose a slot.")
+            return
+
+        if self.lhs not in slots:
+            self.caller.msg("That is not a valid slot!")
+            return
+
+        item = self.caller.equipment.slots[self.lhs]
+        self.caller.location.msg_contents("%s unequips %s" % (self.caller, item))
+        self.caller.equipment.unequip(self.lhs, self)
