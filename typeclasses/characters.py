@@ -8,7 +8,7 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
-
+from typeclasses.equipment_handler import EquipmentHandler
 
 class Character(DefaultCharacter):
     """
@@ -30,4 +30,5 @@ class Character(DefaultCharacter):
     at_post_puppet - Echoes "AccountName has entered the game" to the room.
 
     """
-    pass
+    def at_object_creation(self):
+        self.equipment = EquipmentHandler()
