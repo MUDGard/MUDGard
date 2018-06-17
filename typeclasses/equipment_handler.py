@@ -1,5 +1,5 @@
 class EquipmentHandler:
-    def __init__(self, owner):
+    def __init__(self):
         self.slots = {
             'mainhand': None,
             'offhand': None,
@@ -8,8 +8,7 @@ class EquipmentHandler:
             'shoes': None,
             'accessory': None
         }
-        self.owner = owner
-    def equip(self, object):
+    def equip(self, object, owner):
         target_slot = object.db.slot
 
         if self.slots[target_slot] is not None:
