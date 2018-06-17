@@ -1,12 +1,12 @@
 class EquipmentHandler:
     def __init__(self, owner):
         self.slots = {
-            'mainhand' = None
-            'offhand' = None
-            'body' = None
-            'legs' = None
-            'shoes' = None,
-            'accessory' = None
+            'mainhand': None,
+            'offhand': None,
+            'body': None,
+            'legs': None,
+            'shoes': None,
+            'accessory': None
         }
         self.owner = owner
     def equip(self, object):
