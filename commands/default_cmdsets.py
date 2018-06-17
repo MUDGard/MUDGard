@@ -100,3 +100,4 @@ class EquipmentCmdSet(CmdSet):
     key = "Equipment"
 
     def at_cmdset_creation(self):
+        self.add(equipment_commands.CmdSlot)
