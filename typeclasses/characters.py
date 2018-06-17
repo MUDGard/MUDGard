@@ -9,7 +9,7 @@ creation commands.
 """
 from evennia import DefaultCharacter
 from typeclasses.equipment_handler import EquipmentHandler
-
+from commands.default_cmdsets import EquipmentCmdSet
 class Character(DefaultCharacter):
     """
     The Character defaults to reimplementing some of base Object's hook methods with the
@@ -32,3 +32,4 @@ class Character(DefaultCharacter):
     """
     def at_object_creation(self):
         self.db.equipment = EquipmentHandler()
+        self.cmdsets.add(EquipmentCmdSet)
