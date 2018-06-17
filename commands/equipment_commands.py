@@ -1,7 +1,7 @@
 from evennia.commands.default.muxcommand import MuxCommand
 from evennia import utils
 
-slots = ['accessories', 'shoes', 'legs', 'body', 'offhand', 'mainhand']
+slots = ['accessory', 'shoes', 'legs', 'body', 'offhand', 'mainhand']
 class CmdSlot(MuxCommand):
     """
     Set the slot of an equipment object.
