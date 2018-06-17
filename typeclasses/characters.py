@@ -31,4 +31,4 @@ class Character(DefaultCharacter):
 
     """
     def at_object_creation(self):
-        self.equipment = EquipmentHandler()
+        self.db.equipment = EquipmentHandler()
