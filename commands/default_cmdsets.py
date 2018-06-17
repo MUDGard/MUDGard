@@ -101,3 +101,5 @@ class EquipmentCmdSet(CmdSet):
 
     def at_cmdset_creation(self):
         self.add(equipment_commands.CmdSlot)
+        self.add(equipment_commands.CmdEquip)
+        self.add(equipment_commands.CmdUnequip)
