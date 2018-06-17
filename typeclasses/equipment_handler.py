@@ -18,5 +18,5 @@ class EquipmentHandler:
 
     def unequip(self, slot, owner):
         if self.slots[slot] is not None:
-            self.slots[target_slot].location = owner
-        self.slots[target_slot] = None
+            self.slots[slot].location = owner
+        self.slots[slot] = None
