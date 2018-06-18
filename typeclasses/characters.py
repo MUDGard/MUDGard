@@ -32,4 +32,4 @@ class Character(DefaultCharacter):
     """
     def at_object_creation(self):
         self.db.equipment = EquipmentHandler()
-        self.cmdset.add(EquipmentCmdSet)
+        self.cmdset.add(EquipmentCmdSet())
