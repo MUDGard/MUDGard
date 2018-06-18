@@ -33,7 +33,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(equipment_commands.CmdSlot())
         self.add(equipment_commands.CmdEquip())
         self.add(equipment_commands.CmdUnequip())
-
+        self.add(equipment_commands.CmdStatus())
         #
         # any commands you add below will overload the default ones.
         #
