@@ -89,4 +89,18 @@ class CmdUnequip(MuxCommand):
         self.caller.location.msg_contents("%s unequips %s" % (self.caller, item))
         self.caller.db.equipment.unequip(self.lhs, self.caller)
 
-class 
+class CmdStatus(MuxCommand):
+    """
+    Displays character status.
+    Usage:
+        status
+
+    Currently displays all equipped items.
+    WIP: Will display stats on implementing them.
+    """
+
+    key = "status"
+
+    def func(self):
+        for key, value in self.caller.db.equipment.slots.items():
+            self.caller.msg("%s: %s", key, value.name if value else "Nothing")
