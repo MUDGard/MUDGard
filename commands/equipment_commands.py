@@ -87,4 +87,4 @@ class CmdUnequip(MuxCommand):
 
         item = self.caller.equipment.slots[self.lhs]
         self.caller.location.msg_contents("%s unequips %s" % (self.caller, item))
-        self.caller.equipment.unequip(self.lhs, self)
+        self.caller.db.equipment.unequip(self.lhs, self)
