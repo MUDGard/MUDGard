@@ -30,6 +30,10 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         Populates the cmdset
         """
         super(CharacterCmdSet, self).at_cmdset_creation()
+        self.add(equipment_commands.CmdSlot())
+        self.add(equipment_commands.CmdEquip())
+        self.add(equipment_commands.CmdUnequip())
+
         #
         # any commands you add below will overload the default ones.
         #
@@ -90,16 +94,3 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-
-class EquipmentCmdSet(CmdSet):
-    """
-    This cmdset offers both the admin commands for modifying equipment
-    and the commands for equipping, removing, and viewing your current
-    equipment.
-    """
-    key = "Equipment"
-
-    def at_cmdset_creation(self):
-        self.add(equipment_commands.CmdSlot())
-        self.add(equipment_commands.CmdEquip())
-        self.add(equipment_commands.CmdUnequip())
