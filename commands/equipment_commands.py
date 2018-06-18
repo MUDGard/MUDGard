@@ -102,5 +102,7 @@ class CmdStatus(MuxCommand):
     key = "status"
 
     def func(self):
+        self.caller.msg("Status:")
+        self.caller.msg("Name: %s" % self.caller.name)
         for key, value in self.caller.db.equipment.slots.items():
             self.caller.msg("%s: %s" % (key, value.name if value else "Nothing"))
