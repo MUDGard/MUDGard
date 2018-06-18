@@ -2,6 +2,7 @@ from evennia.commands.default.muxcommand import MuxCommand
 from evennia import utils
 
 slots = ['accessory', 'shoes', 'legs', 'body', 'offhand', 'mainhand']
+
 class CmdSlot(MuxCommand):
     """
     Set the slot of an equipment object.
@@ -41,6 +42,7 @@ class CmdSlot(MuxCommand):
 class CmdEquip(MuxCommand):
     """
     Equip an item.
+
     Usage:
         equip [item]
 
@@ -65,6 +67,7 @@ class CmdEquip(MuxCommand):
 class CmdUnequip(MuxCommand):
     """
     Unequips an item from a specific slot.
+
     Usage:
         unequip [slot]
 
