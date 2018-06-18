@@ -61,7 +61,7 @@ class CmdEquip(MuxCommand):
             self.caller.msg("You do not see a %s" % self.lhs)
 
         self.caller.location.msg_contents("%s equips a %s" %
-            (self.caller, self.lhs))
+            (self.caller, target_item))
         self.caller.db.equipment.equip(target_item, self.caller)
 
 class CmdUnequip(MuxCommand):
