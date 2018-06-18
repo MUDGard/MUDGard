@@ -85,6 +85,6 @@ class CmdUnequip(MuxCommand):
             self.caller.msg("That is not a valid slot!")
             return
 
-        item = self.caller.equipment.slots[self.lhs]
+        item = self.caller.db.equipment.slots[self.lhs]
         self.caller.location.msg_contents("%s unequips %s" % (self.caller, item))
         self.caller.db.equipment.unequip(self.lhs, self)
