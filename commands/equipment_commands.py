@@ -104,5 +104,9 @@ class CmdStatus(MuxCommand):
     def func(self):
         self.caller.msg("Status:")
         self.caller.msg("Name: %s" % self.caller.name)
+        self.caller.msg("Class: %s" % self.caller.db.class_)
+        self.caller.msg("Level: %s" % self.caller.db.level)
+        self.caller.msg("Experience: %d/%d" %
+            (self.caller.db.exp, self.caller.db.level * 1000))
         for key, value in self.caller.db.equipment.slots.items():
             self.caller.msg("%s: %s" % (key, value.name if value else "Nothing"))

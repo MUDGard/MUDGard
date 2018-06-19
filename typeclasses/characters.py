@@ -32,3 +32,23 @@ class Character(DefaultCharacter):
     """
     def at_object_creation(self):
         self.db.equipment = EquipmentHandler()
+        self.db.silver_pieces = 0
+        self.db.level = 1
+        self.db.exp = 0
+        self.db.class_stats = {}
+        self.db.class_ = "None yet"
+
+    def new_class(self, class_name):
+        self.db.class_ = class_name
+        self.db.class_stats[class_name] = [5, 5, 5]
+
+    def current_stats(self):
+        return self.db.class_stats[self.class_]
+
+    def remaining_points(self):
+            if sum(self.db.class_stats[self.db.class_]) < 45:
+                return 45 - self.db.class_stats[self.db.class_]
+            else:
+                if type(self.current_stats()) == list:
+                    self.db.class_stats[self.class_] = tuple(self.current_stats())
+                return 0
